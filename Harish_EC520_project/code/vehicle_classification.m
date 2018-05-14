@@ -29,8 +29,8 @@ B = N.*sum;
 nnn = 1;
 for kk = 1:nfiles
     images{kk} = images{kk} - B;  % subtract background from each frame
-    images{kk} = medfilt2(images{kk},[5 5]);    % use median filter to  
-                                                % eliminate noise
+    images{kk} = medfilt2(images{kk},[5 5]);    % use median filter to eliminate noise  
+    images{kk} = MRF(images{kk},2,2,2);                                           
     images{kk} = images{kk}+20; % decrese intensity to delete high 
                                 % intensity noise 
     thresh = images{kk};
